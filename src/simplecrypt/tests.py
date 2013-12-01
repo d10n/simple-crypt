@@ -42,9 +42,6 @@ class TestEncryption(TestCase):
             return string
         u_message = u('message')
         u_high_order = u('¥£€$¢₡₢₣₤₥₦₧₨₩₪₫₭₮₯₹')
-        #else:
-        #    u_message = 'message'
-        #    u_highorder = '¥£€$¢₡₢₣₤₥₦₧₨₩₪₫₭₮₯₹'
         ptext = decrypt('password', encrypt('password', u_message))
         assert ptext.decode('utf8') == 'message', ptext
         ptext = decrypt('password', encrypt('password', u_message.encode('utf8')))
